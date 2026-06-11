@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Invitación Primera Comunión - Bella Aurora</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Great+Vibes&family=Playfair+Display&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* Paleta de colores */
+        :root {
+            --blanco: #fff;
+            --marfil: #fef9f0;
+            --beige: #f5f0e6;
+            --dorado: #D4AF37;
+            --negro: #222;
+        }
+
+        /* Reset básico */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Cormorant Garamond', serif;
+            background: var(--marfil);
+            color: var(--negro);
+            scroll-behavior: smooth;
+            min-height: 100vh;
+        }
+
+        /* Fondo con textura sutil tipo papel antiguo */
+        body {
+            background-image:
+                url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            background-color: var(--marfil);
+            background-repeat: repeat;
+            background-attachment: fixed;
+        }
+
+        /* Scroll fade-in animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Bordes ornamentales dorados */
+        .ornamental-border {
+            border: 2px solid var(--dorado);
+            border-radius: 15px;
+            padding: 1em 2em;
+            position: relative;
+        }
+
+        .ornamental-border::before,
+        .ornamental-border::after {
+            content: "";
+            position: absolute;
+            border: 1px solid var(--dorado);
+            border-radius: 10px;
+        }
+
+        .ornamental-border::before {
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+        }
+
+        .ornamental-border::after {
+            top: 8px;
+            left: 8px;
+            right: 8px;
+            bottom: 8px;
+        }
+
+        /* TIPOGRAFÍAS */
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .great-vibes {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .cormorant {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* GENERAL */
+        .center-text {
+            text-align: center;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            margin: 0.1em 0 0.5em 0;
+        }
+
+        /* SECCIÓN 1 Hero */
+        #hero {
+            position: relative;
+            height: 100vh;
+            background-image: url('https://images.pexels.com/photos/5824134/pexels-photo-5824134.jpeg');
+            /* Reemplazable */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blanco);
+            font-family: 'Playfair Display', serif;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        #hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.25);
+            pointer-events: none;
+        }
+
+        #hero h1 {
+            font-size: 4rem;
+            z-index: 1;
+            user-select: none;
+        }
+
+        /* SECCION 2 */
+        #nombre {
+            background-color: var(--blanco);
+            color: var(--dorado);
+            font-size: 3.5rem;
+            font-weight: 400;
+            padding: 2rem 1rem;
+            font-family: 'Great Vibes', cursive;
+            letter-spacing: 0.05em;
+        }
+
+        /* SECCION 3 */
+        #invitacion-texto {
+            background-color: var(--blanco);
+            padding: 1.5rem 1rem 3rem 1rem;
+            font-size: 1.7rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--negro);
+        }
+
+        /* SEPARADOR FLORAL */
+        #separador-floral {
+            display: block;
+            margin: 2rem auto;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        /* SECCION 4: Versículo */
+        #versiculo {
+            background-color: var(--blanco);
+            max-width: 700px;
+            margin: 4rem auto 2rem auto;
+            padding: 1.5rem 2rem;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--negro);
+            text-align: center;
+        }
+
+        #versiculo .referencia {
+            font-weight: bold;
+            margin-top: 0.5rem;
+            font-style: normal;
+        }
+
+        /* SEPARADOR Paloma */
+        #separador-paloma {
+            display: flex;
+            justify-content: center;
+            margin: 2rem auto;
+        }
+
+        #separador-paloma svg {
+            width: 60px;
+            height: 60px;
+            fill: var(--dorado);
+        }
+
+        /* SECCIÓN 5: Texto de alegría y gracia */
+        #texto-alegria {
+            background-color: var(--blanco);
+            max-width: 700px;
+            margin: 2rem auto 4rem auto;
+            padding: 1.5rem 2rem;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--negro);
+            text-align: center;
+        }
+
+        /* SECCIÓN 6: Imagen con bordes redondeados y sombra */
+        #imagen-comunion {
+            max-width: 90vw;
+            max-height: 400px;
+            margin: 0 auto;
+            display: block;
+            border-radius: 20px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.12);
+            object-fit: cover;
+        }
+
+        /* SECCIÓN 7: Texto con líneas y nombres de padres y padrinos */
+        #familia {
+            padding: 3rem 1rem 3rem 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        #familia .linea-dorada {
+            font-family: 'Playfair Display', serif;
+            color: var(--dorado);
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.2rem 0;
+            letter-spacing: 0.05em;
+        }
+
+        #familia .nombre-familia {
+            font-family: 'Playfair Display', serif;
+            color: var(--dorado);
+            font-weight: 500;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #familia .invitacion {
+            font-family: 'Great Vibes', cursive;
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--negro);
+            margin-top: 2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        #familia .nombre-bella {
+            font-family: 'Great Vibes', cursive;
+            text-align: center;
+            font-size: 3rem;
+            color: var(--negro);
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+
+        /* SECCIÓN 8: Fecha + contador */
+        #fecha {
+            background-color: var(--beige);
+            padding: 2.5rem 1rem 3.5rem 1rem;
+            text-align: center;
+        }
+
+        #fecha .dia-semana {
+            font-family: 'Playfair Display', serif;
+            color: var(--dorado);
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        #fecha .fecha-num {
+            font-family: 'Playfair Display', serif;
+            color: var(--negro);
+            font-size: 1.8rem;
+            margin-bottom: 1.8rem;
+        }
+
+        #contador {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .caja-contador {
+            background-color: var(--dorado);
+            color: white;
+            border-radius: 12px;
+            min-width: 70px;
+            padding: 1rem 1.2rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .caja-contador .numero {
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .caja-contador .unidad {
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* SECCIÓN 9: Ubicaciones */
+        #ubicaciones {
+            padding: 2rem 1rem 3rem 1rem;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        #ubicaciones h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--dorado);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .tarjeta-ubicacion {
+            background-color: var(--blanco);
+            border: 2px solid var(--dorado);
+            border-radius: 16px;
+            padding: 1.5rem 1.5rem 2rem 1.5rem;
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 1.8rem;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .icono-ubicacion {
+            flex-shrink: 0;
+            width: 45px;
+            height: 45px;
+            fill: var(--dorado);
+        }
+
+        .contenido-ubicacion {
+            flex-grow: 1;
+        }
+
+        .contenido-ubicacion .tipo-ubicacion {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--dorado);
+            margin-bottom: 0.2rem;
+        }
+
+        .contenido-ubicacion .direccion {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            color: var(--negro);
+            margin-bottom: 0.8rem;
+        }
+
+        .btn-ver-mapa {
+            background-color: var(--dorado);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 0.5rem 1.3rem;
+            cursor: pointer;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.95rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-ver-mapa:hover,
+        .btn-ver-mapa:focus {
+            background-color: #b08e28;
+            outline: none;
+        }
+
+        /* SECCIÓN 10: Botón Confirmar asistencia */
+        #confirmar {
+            display: flex;
+            justify-content: center;
+            padding: 3rem 1rem 4rem 1rem;
+        }
+
+        #btn-confirmar {
+            background-color: var(--dorado);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 1rem 3rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 9px rgba(212, 175, 55, 0.7);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #btn-confirmar:hover,
+        #btn-confirmar:focus {
+            background-color: #b08e28;
+            box-shadow: 0 6px 15px rgba(176, 142, 40, 0.8);
+            outline: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--blanco);
+            padding: 1.8rem 1rem 3rem 1rem;
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--negro);
+            position: relative;
+        }
+
+        .cruz-dorada {
+            margin: 0 auto 1rem auto;
+            width: 50px;
+            height: 50px;
+            fill: var(--dorado);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 599px) {
+            #hero h1 {
+                font-size: 2.8rem;
+                padding: 0 1em;
+            }
+
+            #nombre {
+                font-size: 2.5rem;
+                padding: 1.5rem 1rem;
+            }
+
+            #invitacion-texto {
+                font-size: 1.2rem;
+                padding: 1rem;
+            }
+
+            #versiculo,
+            #texto-alegria {
+                font-size: 1.1rem;
+                padding: 1rem 1.5rem;
+            }
+
+            #familia {
+                padding: 2rem 1rem;
+            }
+
+            #familia .linea-dorada {
+                font-size: 1.1rem;
+            }
+
+            #familia .nombre-familia {
+                font-size: 1.3rem;
+            }
+
+            #familia .invitacion {
+                font-size: 1.6rem;
+            }
+
+            #familia .nombre-bella {
+                font-size: 2rem;
+            }
+
+            #fecha {
+                padding: 2rem 1rem 3rem 1rem;
+            }
+
+            #fecha .dia-semana {
+                font-size: 2.2rem;
+            }
+
+            #fecha .fecha-num {
+                font-size: 1.5rem;
+            }
+
+            .caja-contador {
+                min-width: 50px;
+                padding: 0.8rem 1rem;
+            }
+
+            .caja-contador .numero {
+                font-size: 1.8rem;
+            }
+
+            .caja-contador .unidad {
+                font-size: 0.85rem;
+            }
+
+            #ubicaciones {
+                max-width: 100%;
+                padding: 1rem 0.5rem;
+            }
+
+            .tarjeta-ubicacion {
+                max-width: 100%;
+                padding: 1.2rem;
+            }
+
+            #btn-confirmar {
+                width: 90%;
+                font-size: 1.2rem;
+                padding: 0.9rem 0;
+            }
+        }
+
+        @media (min-width: 600px) {
+            #hero h1 {
+                font-size: 4.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SECCION 1: HERO -->
+    <section id="hero" class="fade-in-section" aria-label="¡Acompáñame a celebrar este momento tan bello!">
+        <h1>¡Acompáñame a celebrar este momento tan bello!</h1>
+    </section>
+
+    <!-- SECCIÓN 2 -->
+    <section id="nombre" class="fade-in-section great-vibes center-text" aria-label="Nombre de la niña">
+        Bella Aurora
+    </section>
+
+    <!-- SECCIÓN 3 -->
+    <section id="invitacion-texto" class="fade-in-section center-text" aria-label="Texto de invitación">
+        <p>Mi Primera Comunión</p>
+    </section>
+
+    <!-- SEPARADOR FLORAL -->
+    <img id="separador-floral" class="fade-in-section"
+        src="https://images.pexels.com/photos/6168240/pexels-photo-6168240.jpeg"
+        alt="Separador floral dorado y blanco" />
+
+    <!-- SECCIÓN 4 -->
+    <section id="versiculo" class="fade-in-section center-text" aria-label="Versículo de la Biblia">
+        <p>"Yo Soy el pan de vida, el que viene a mí nunca tendrá hambre, el que cree en mí nunca tendrá sed."</p>
+        <p class="referencia">Juan 6:35</p>
+    </section>
+
+    <!-- SEPARADOR PALOMA -->
+    <div id="separador-paloma" class="fade-in-section" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" role="img">
+            <path
+                d="M32 6c-11 0-21 8-21 19 0 7 5 14 11 19-3 3-4 5-4 7 0 2 3 3 7 3s7-1 7-3c0-2-1-4-4-7 6-5 11-12 11-19 0-11-10-19-21-19z" />
+        </svg>
+    </div>
+
+    <!-- SECCIÓN 5 -->
+    <section id="texto-alegria" class="fade-in-section center-text" aria-label="Texto de gracia y alegría">
+        <p>Que la alegría y la gracia de este día tan especial permanezcan siempre en mi corazón y que Dios me acompañe
+            siempre con su luz.</p>
+    </section>
+
+    <!-- SECCIÓN 6 -->
+    <section id="imagen-section" class="fade-in-section center-text" aria-label="Imagen de Primera Comunión">
+        <img id="imagen-comunion" src="https://images.pexels.com/photos/33481850/pexels-photo-33481850.jpeg"
+            alt="Niña en su Primera Comunión" />
+    </section>
+
+    <!-- SECCIÓN 7 -->
+    <section id="familia" class="fade-in-section" aria-label="Información de familia y padrinos">
+        <p class="linea-dorada center-text">ACOMPAÑADA SIEMPRE POR EL AMOR DE MIS PADRES:</p>
+        <p class="nombre-familia center-text">Gustavo Alfredo y Lucía Guadalupe</p>
+
+        <p class="linea-dorada center-text">Y RODEADA CON CARIÑO POR MIS PADRINOS:</p>
+        <p class="nombre-familia center-text">Salvador Alejandro y Martha Reynalda</p>
+
+        <section id="texto-alegria" class="fade-in-section center-text" aria-label="Texto de gracia y alegría">
+            <p>Tenemos el honor de invitarles a celebrar mi Primera Comunión</p>
+            <p class="nombre-bella">Bella Aurora</p>
+        </section>
+    </section>
+
+    <!-- SECCIÓN 8: FECHA y contador -->
+    <section id="fecha" class="fade-in-section" aria-label="Fecha de la Primera Comunión y contador">
+        <div class="dia-semana" aria-live="polite" aria-atomic="true">SÁBADO</div>
+        <section id="familia" class="fade-in-section" aria-label="Información de familia y padrinos"
+            style="margin-top: -30px;">
+            <p class="linea-dorada center-text">18 de Julio de 2026 | 10:00 AM</p>
+        </section>
+        <div class="fecha-num" style="display: none;">18-07-2026</div>
+        <div id="contador" role="timer" aria-live="polite">
+            <div class="caja-contador" aria-label="Días restantes">
+                <div class="numero" id="dias">00</div>
+                <div class="unidad">Días</div>
+            </div>
+            <div class="caja-contador" aria-label="Horas restantes">
+                <div class="numero" id="horas">00</div>
+                <div class="unidad">Horas</div>
+            </div>
+            <div class="caja-contador" aria-label="Minutos restantes">
+                <div class="numero" id="minutos">00</div>
+                <div class="unidad">Minutos</div>
+            </div>
+            <div class="caja-contador" aria-label="Segundos restantes">
+                <div class="numero" id="segundos">00</div>
+                <div class="unidad">Segundos</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 9: UBICACIONES -->
+    <section id="ubicaciones" class="fade-in-section" aria-label="Ubicaciones del evento">
+        <h2>UBICACIONES</h2>
+
+        <!-- Ceremonia Religiosa -->
+        <article class="tarjeta-ubicacion">
+            <svg class="icono-ubicacion" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                <path
+                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+            </svg>
+            <div class="contenido-ubicacion">
+                <p class="tipo-ubicacion">Ceremonia Religiosa</p>
+                <p class="direccion" id="dir-ceremonia">Parroquia de San Lázaro, C. José Escobar 3415, Dr Valentín Gómez
+                    Farias, 44970 Guadalajara, Jal.</p>
+                <button class="btn-ver-mapa" type="button" data-url="https://maps.app.goo.gl/dfRdy5h8ABBTti8J6"
+                    aria-label="Ver ubicación de la ceremonia religiosa en Google Maps">Ver ubicación</button>
+            </div>
+        </article>
+
+        <!-- Convivio -->
+        <article class="tarjeta-ubicacion">
+            <svg class="icono-ubicacion" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-fork-knife" viewBox="0 0 16 16">
+                <path
+                    d="M13 .5c0-.276-.226-.506-.498-.465-1.703.257-2.94 2.012-3 8.462a.5.5 0 0 0 .498.5c.56.01 1 .13 1 1.003v5.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5zM4.25 0a.25.25 0 0 1 .25.25v5.122a.128.128 0 0 0 .256.006l.233-5.14A.25.25 0 0 1 5.24 0h.522a.25.25 0 0 1 .25.238l.233 5.14a.128.128 0 0 0 .256-.006V.25A.25.25 0 0 1 6.75 0h.29a.5.5 0 0 1 .498.458l.423 5.07a1.69 1.69 0 0 1-1.059 1.711l-.053.022a.92.92 0 0 0-.58.884L6.47 15a.971.971 0 1 1-1.942 0l.202-6.855a.92.92 0 0 0-.58-.884l-.053-.022a1.69 1.69 0 0 1-1.059-1.712L3.462.458A.5.5 0 0 1 3.96 0z" />
+            </svg>
+            <div class="contenido-ubicacion">
+                <p class="tipo-ubicacion">Convivio</p>
+                <p class="direccion" id="dir-convivio">Terraza El Rocío. Calle Canuto Elías #3572. Fraccionamiento El
+                    Rocío.</p>
+                <button class="btn-ver-mapa" type="button" data-url="https://maps.app.goo.gl/5magvEadB1asgqGe7"
+                    aria-label="Ver ubicación del convivio en Google Maps">Ver ubicación</button>
+            </div>
+        </article>
+
+    </section>
+
+    <!-- SECCIÓN 10: Botón Confirmar Asistencia -->
+    <section id="confirmar" class="fade-in-section">
+        <button id="btn-confirmar" type="button" aria-label="Confirmar asistencia por WhatsApp">
+            CONFIRMAR ASISTENCIA
+        </button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <svg class="cruz-dorada" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 64 64">
+            <rect x="28" y="8" width="8" height="48" />
+            <rect x="8" y="28" width="48" height="8" />
+        </svg>
+        <p>Gracias por acompañarnos en este día tan especial.</p>
+    </footer>
+
+    <script>
+        // FADE-IN ON SCROLL
+        const faders = document.querySelectorAll('.fade-in-section');
+
+        const appearOptions = {
+            threshold: 0.1,
+        };
+
+        const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-visible');
+                appearOnScroll.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => appearOnScroll.observe(fader));
+
+        // CONTADOR REGRESIVO
+        // Fecha a ajustar - ejemplo: 15 de Mayo de 2026 a las 10:00 AM
+        const fechaEvento = new Date('2026-07-18T10:00:00');
+
+        // Actualizar fecha mostrada abajo "00-MM-2026" y día de semana
+        const fechaNumero = document.querySelector('#fecha .fecha-num');
+        const diaSemanaEl = document.querySelector('#fecha .dia-semana');
+
+        function nombreDiaSemana(date) {
+            const dias = ['DOMINGO', 'LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES', 'SÁBADO'];
+            return dias[date.getDay()];
+        }
+        function fechaFormato(date) {
+            const d = String(date.getDate()).padStart(2, '0');
+            const m = String(date.getMonth() + 1).padStart(2, '0');
+            const y = date.getFullYear();
+            return `${d}-${m}-${y}`;
+        }
+        diaSemanaEl.textContent = nombreDiaSemana(fechaEvento);
+        fechaNumero.textContent = fechaFormato(fechaEvento);
+
+        const diasE = document.getElementById('dias');
+        const horasE = document.getElementById('horas');
+        const minutosE = document.getElementById('minutos');
+        const segundosE = document.getElementById('segundos');
+
+        function actualizarContador() {
+            const ahora = new Date();
+            const diferencia = fechaEvento - ahora;
+
+            if (diferencia <= 0) {
+                // Evento ocurrido
+                diasE.textContent = '00';
+                horasE.textContent = '00';
+                minutosE.textContent = '00';
+                segundosE.textContent = '00';
+                clearInterval(intervaloContador);
+                return;
+            }
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+            const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+            const segundos = Math.floor((diferencia / 1000) % 60);
+
+            diasE.textContent = String(dias).padStart(2, '0');
+            horasE.textContent = String(horas).padStart(2, '0');
+            minutosE.textContent = String(minutos).padStart(2, '0');
+            segundosE.textContent = String(segundos).padStart(2, '0');
+        }
+
+        const intervaloContador = setInterval(actualizarContador, 1000);
+        actualizarContador();
+
+        // BOTONES VER UBICACIÓN
+        document.querySelectorAll('.btn-ver-mapa').forEach(btn => {
+            btn.addEventListener('click', e => {
+                const url = btn.getAttribute('data-url');
+                if (url) {
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                }
+            });
+        });
+
+        // BOTÓN CONFIRMAR ASISTENCIA Whatsapp
+        const btnConfirmar = document.getElementById('btn-confirmar');
+        btnConfirmar.addEventListener('click', () => {
+            const numeroWhatsApp = '523339576628';
+            const mensaje = encodeURIComponent('Confirmo mi asistencia a la Primera Comunión de Bella Aurora');
+            const urlWhatsapp = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
+            window.open(urlWhatsapp, '_blank', 'noopener,noreferrer');
+        });
+    </script>
+
+</body>
+
+</html>
